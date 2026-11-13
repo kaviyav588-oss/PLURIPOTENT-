@@ -1,0 +1,6 @@
+{
+  "name": "PLURIPOTENT",
+  "description": "IoT & ML Intelligent Road Accident Detection, Severity Prediction, and Emergency Decision Support System.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,434 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--theme-bg, #080b14);
+    color: var(--theme-text, #e2e8f0);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  code, pre, .font-mono, .tabular-nums {
+    font-family: var(--font-mono);
+  }
+}
+
+/* ==========================================================================
+   THEME PALETTE OVERRIDES
+   ========================================================================== */
+
+/* 1. EMERALD (Cyber Emerald / Bio-Safe High-Tech Mint Green) - ACTIVE DEFAULT */
+[data-theme="emerald"], :root:not([data-theme]) {
+  --theme-bg: #050f0b;
+  --theme-text: #f0fdf4;
+}
+
+[data-theme="emerald"] .text-cyan-400,
+[data-theme="emerald"] .text-cyan-300,
+[data-theme="emerald"] .text-cyan-500,
+:root:not([data-theme]) .text-cyan-400,
+:root:not([data-theme]) .text-cyan-300 {
+  color: #34d399 !important;
+}
+
+[data-theme="emerald"] .bg-cyan-500,
+:root:not([data-theme]) .bg-cyan-500 {
+  background-color: #10b981 !important;
+  color: #022c22 !important;
+}
+
+[data-theme="emerald"] .hover\:bg-cyan-400:hover,
+:root:not([data-theme]) .hover\:bg-cyan-400:hover {
+  background-color: #34d399 !important;
+}
+
+[data-theme="emerald"] .bg-cyan-500\/10,
+[data-theme="emerald"] .bg-cyan-500\/15,
+[data-theme="emerald"] .bg-cyan-500\/20,
+:root:not([data-theme]) .bg-cyan-500\/10,
+:root:not([data-theme]) .bg-cyan-500\/15,
+:root:not([data-theme]) .bg-cyan-500\/20 {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+}
+
+[data-theme="emerald"] .border-cyan-500,
+[data-theme="emerald"] .border-cyan-500\/30,
+[data-theme="emerald"] .border-cyan-500\/40,
+[data-theme="emerald"] .border-cyan-500\/50,
+[data-theme="emerald"] .border-cyan-500\/60,
+:root:not([data-theme]) .border-cyan-500\/30,
+:root:not([data-theme]) .border-cyan-500\/40,
+:root:not([data-theme]) .border-cyan-500\/50 {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+}
+
+[data-theme="emerald"] .hover\:text-cyan-300:hover,
+[data-theme="emerald"] .hover\:text-cyan-400:hover,
+:root:not([data-theme]) .hover\:text-cyan-300:hover,
+:root:not([data-theme]) .hover\:text-cyan-400:hover {
+  color: #a7f3d0 !important;
+}
+
+[data-theme="emerald"] .group:hover .group-hover\:text-cyan-400,
+[data-theme="emerald"] .group:hover .group-hover\:text-cyan-300,
+:root:not([data-theme]) .group:hover .group-hover\:text-cyan-400,
+:root:not([data-theme]) .group:hover .group-hover\:text-cyan-300 {
+  color: #34d399 !important;
+}
+
+[data-theme="emerald"] .shadow-cyan-500\/20,
+[data-theme="emerald"] .shadow-cyan-500\/25,
+:root:not([data-theme]) .shadow-cyan-500\/20,
+:root:not([data-theme]) .shadow-cyan-500\/25 {
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35) !important;
+}
+
+[data-theme="emerald"] .accent-cyan-400,
+:root:not([data-theme]) .accent-cyan-400 {
+  accent-color: #34d399 !important;
+}
+
+/* 2. AMBER (Tactical Road Safety & Hazard Gold) */
+[data-theme="amber"] {
+  --theme-bg: #080b14;
+  --theme-text: #f1f5f9;
+}
+
+[data-theme="amber"] .text-cyan-400,
+[data-theme="amber"] .text-cyan-300,
+[data-theme="amber"] .text-cyan-500 {
+  color: #fbbf24 !important;
+}
+
+[data-theme="amber"] .bg-cyan-500 {
+  background-color: #f59e0b !important;
+  color: #0f172a !important;
+}
+
+[data-theme="amber"] .hover\:bg-cyan-400:hover {
+  background-color: #fbbf24 !important;
+}
+
+[data-theme="amber"] .bg-cyan-500\/10,
+[data-theme="amber"] .bg-cyan-500\/15,
+[data-theme="amber"] .bg-cyan-500\/20 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+[data-theme="amber"] .border-cyan-500,
+[data-theme="amber"] .border-cyan-500\/30,
+[data-theme="amber"] .border-cyan-500\/40,
+[data-theme="amber"] .border-cyan-500\/50,
+[data-theme="amber"] .border-cyan-500\/60 {
+  border-color: rgba(245, 158, 11, 0.45) !important;
+}
+
+[data-theme="amber"] .hover\:text-cyan-300:hover,
+[data-theme="amber"] .hover\:text-cyan-400:hover {
+  color: #fde68a !important;
+}
+
+[data-theme="amber"] .group:hover .group-hover\:text-cyan-400,
+[data-theme="amber"] .group:hover .group-hover\:text-cyan-300 {
+  color: #fbbf24 !important;
+}
+
+[data-theme="amber"] .shadow-cyan-500\/20,
+[data-theme="amber"] .shadow-cyan-500\/25 {
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="amber"] .accent-cyan-400 {
+  accent-color: #fbbf24 !important;
+}
+
+/* 3. BLUE (Electric Cobalt & Royal Sapphire) */
+[data-theme="blue"] {
+  --theme-bg: #070c1a;
+  --theme-text: #eff6ff;
+}
+
+[data-theme="blue"] .text-cyan-400,
+[data-theme="blue"] .text-cyan-300,
+[data-theme="blue"] .text-cyan-500 {
+  color: #60a5fa !important;
+}
+
+[data-theme="blue"] .bg-cyan-500 {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="blue"] .hover\:bg-cyan-400:hover {
+  background-color: #60a5fa !important;
+}
+
+[data-theme="blue"] .bg-cyan-500\/10,
+[data-theme="blue"] .bg-cyan-500\/15,
+[data-theme="blue"] .bg-cyan-500\/20 {
+  background-color: rgba(59, 130, 246, 0.16) !important;
+}
+
+[data-theme="blue"] .border-cyan-500,
+[data-theme="blue"] .border-cyan-500\/30,
+[data-theme="blue"] .border-cyan-500\/40,
+[data-theme="blue"] .border-cyan-500\/50,
+[data-theme="blue"] .border-cyan-500\/60 {
+  border-color: rgba(59, 130, 246, 0.45) !important;
+}
+
+[data-theme="blue"] .hover\:text-cyan-300:hover,
+[data-theme="blue"] .hover\:text-cyan-400:hover {
+  color: #bfdbfe !important;
+}
+
+[data-theme="blue"] .group:hover .group-hover\:text-cyan-400,
+[data-theme="blue"] .group:hover .group-hover\:text-cyan-300 {
+  color: #60a5fa !important;
+}
+
+[data-theme="blue"] .shadow-cyan-500\/20,
+[data-theme="blue"] .shadow-cyan-500\/25 {
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3) !important;
+}
+
+[data-theme="blue"] .accent-cyan-400 {
+  accent-color: #60a5fa !important;
+}
+
+/* 4. VIOLET (Sentinel Neon Violet) */
+[data-theme="violet"] {
+  --theme-bg: #090717;
+  --theme-text: #f5f3ff;
+}
+
+[data-theme="violet"] .text-cyan-400,
+[data-theme="violet"] .text-cyan-300,
+[data-theme="violet"] .text-cyan-500 {
+  color: #a78bfa !important;
+}
+
+[data-theme="violet"] .bg-cyan-500 {
+  background-color: #8b5cf6 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="violet"] .hover\:bg-cyan-400:hover {
+  background-color: #a78bfa !important;
+}
+
+[data-theme="violet"] .bg-cyan-500\/10,
+[data-theme="violet"] .bg-cyan-500\/15,
+[data-theme="violet"] .bg-cyan-500\/20 {
+  background-color: rgba(139, 92, 246, 0.16) !important;
+}
+
+[data-theme="violet"] .border-cyan-500,
+[data-theme="violet"] .border-cyan-500\/30,
+[data-theme="violet"] .border-cyan-500\/40,
+[data-theme="violet"] .border-cyan-500\/50,
+[data-theme="violet"] .border-cyan-500\/60 {
+  border-color: rgba(139, 92, 246, 0.45) !important;
+}
+
+[data-theme="violet"] .hover\:text-cyan-300:hover,
+[data-theme="violet"] .hover\:text-cyan-400:hover {
+  color: #ddd6fe !important;
+}
+
+[data-theme="violet"] .group:hover .group-hover\:text-cyan-400,
+[data-theme="violet"] .group:hover .group-hover\:text-cyan-300 {
+  color: #a78bfa !important;
+}
+
+[data-theme="violet"] .shadow-cyan-500\/20,
+[data-theme="violet"] .shadow-cyan-500\/25 {
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3) !important;
+}
+
+[data-theme="violet"] .accent-cyan-400 {
+  accent-color: #a78bfa !important;
+}
+
+/* 5. CRIMSON (Rapid Trauma Emergency Red) */
+[data-theme="crimson"] {
+  --theme-bg: #0e070a;
+  --theme-text: #fff1f2;
+}
+
+[data-theme="crimson"] .text-cyan-400,
+[data-theme="crimson"] .text-cyan-300,
+[data-theme="crimson"] .text-cyan-500 {
+  color: #fb7185 !important;
+}
+
+[data-theme="crimson"] .bg-cyan-500 {
+  background-color: #f43f5e !important;
+  color: #ffffff !important;
+}
+
+[data-theme="crimson"] .hover\:bg-cyan-400:hover {
+  background-color: #fb7185 !important;
+}
+
+[data-theme="crimson"] .bg-cyan-500\/10,
+[data-theme="crimson"] .bg-cyan-500\/15,
+[data-theme="crimson"] .bg-cyan-500\/20 {
+  background-color: rgba(244, 63, 94, 0.16) !important;
+}
+
+[data-theme="crimson"] .border-cyan-500,
+[data-theme="crimson"] .border-cyan-500\/30,
+[data-theme="crimson"] .border-cyan-500\/40,
+[data-theme="crimson"] .border-cyan-500\/50,
+[data-theme="crimson"] .border-cyan-500\/60 {
+  border-color: rgba(244, 63, 94, 0.45) !important;
+}
+
+[data-theme="crimson"] .hover\:text-cyan-300:hover,
+[data-theme="crimson"] .hover\:text-cyan-400:hover {
+  color: #fecdd3 !important;
+}
+
+[data-theme="crimson"] .group:hover .group-hover\:text-cyan-400,
+[data-theme="crimson"] .group:hover .group-hover\:text-cyan-300 {
+  color: #fb7185 !important;
+}
+
+[data-theme="crimson"] .shadow-cyan-500\/20,
+[data-theme="crimson"] .shadow-cyan-500\/25 {
+  box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.3) !important;
+}
+
+[data-theme="crimson"] .accent-cyan-400 {
+  accent-color: #fb7185 !important;
+}
+
+/* 6. LIGHT MODE (Clean Titanium & Daylight Clinical) */
+[data-theme="light"] {
+  --theme-bg: #f8fafc;
+  --theme-text: #0f172a;
+}
+
+[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bg-slate-950,
+[data-theme="light"] .bg-\[\#060913\] {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bg-slate-900,
+[data-theme="light"] .bg-slate-900\/60,
+[data-theme="light"] .bg-slate-900\/80,
+[data-theme="light"] .bg-slate-900\/90 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .bg-slate-950\/60,
+[data-theme="light"] .bg-slate-950\/80,
+[data-theme="light"] .bg-slate-950\/90 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .text-slate-200,
+[data-theme="light"] .text-slate-300 {
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .text-slate-400 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .border-slate-800,
+[data-theme="light"] .border-slate-800\/80,
+[data-theme="light"] .border-slate-700\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .text-cyan-400,
+[data-theme="light"] .text-cyan-300 {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .bg-cyan-500 {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .hover\:bg-cyan-400:hover {
+  background-color: #0369a1 !important;
+}
+
+[data-theme="light"] .bg-cyan-500\/10,
+[data-theme="light"] .bg-cyan-500\/15,
+[data-theme="light"] .bg-cyan-500\/20 {
+  background-color: rgba(2, 132, 199, 0.1) !important;
+}
+
+[data-theme="light"] .border-cyan-500,
+[data-theme="light"] .border-cyan-500\/30,
+[data-theme="light"] .border-cyan-500\/40,
+[data-theme="light"] .border-cyan-500\/50 {
+  border-color: rgba(2, 132, 199, 0.3) !important;
+}
+
+[data-theme="light"] .telemetry-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg, #080b14);
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Subtle grid line background effect for telemetry canvas */
+.telemetry-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.radar-sweep {
+  animation: radar-sweep 4s linear infinite;
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
